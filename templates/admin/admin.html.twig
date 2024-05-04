@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title %}Partie admin{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<input type="checkbox" id="check">
+<!--header area start-->
+<header>
+    <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+        <h3>My<span> Mobile<span></h3>
+        <a href="#" class="logout_btn">Logout</a>
+    </div>
+</header>
+<!--header area end-->
+<!--sidebar start-->
+<div class="sidebar">
+    <center>
+        <img src="{{ asset('images/user.png')}}" class="profile_image" alt="admin">
+        <h4>Admin</h4>
+    </center>
+    <a href="#" id="dashboard-link"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+    <a href="#" id="profile-link"><i class="fas fa-user"></i><span>Profil</span></a>
+    <a href="#" id="appareil-link" target="_self"><i class="fas fa-mobile-alt"></i><span>Appareil</span></a>
+    <a href="{{ path('systeme') }}" id="systeme-link" target="_self"><i class="fas fa-cog"></i><span>Système</span></a>
+    <a href="#" id="fabricant-link" target="_self"><i class="fas fa-industry"></i><span>Fabricant</span></a>
+    <a href="#" id="settings-link"><i class="fas fa-cog"></i><span>Settings</span></a>
+</div>
+<!--sidebar end-->
+
+<!-- Main content area -->
+<div id="content">
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

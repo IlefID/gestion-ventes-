@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Systeme{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <style>
+        .aa{
+            padding: 30px;
+            width: 100%;
+            height: 20px;
+            }
+        .bb{
+    margin-left: 150px;
+    padding-left: 130px; 
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 150px;
+}
+   </style>
+{% endblock %}
+{% block body %}
+<div>
+    {% include 'admin/admin.html.twig' %}
+</div>
+<div class="aa">
+
+</div>
+<div class="bb">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ systeme.id }}</td>
+            </tr>
+            <tr>
+                <th>Idos</th>
+                <td>{{ systeme.idos }}</td>
+            </tr>
+            <tr>
+                <th>Famille</th>
+                <td>{{ systeme.famille }}</td>
+            </tr>
+            <tr>
+                <th>Editeur</th>
+                <td>{{ systeme.editeur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_systeme_index') }}" class="btn btn-secondary"> <sub><i class="bi bi-arrow-return-left"></i></sub> Back to list</a>
+
+    <a href="{{ path('app_systeme_edit', {'id': systeme.id}) }}" class="btn btn-primary"> <i class="fa-solid fa-circle-plus"></i> Edit</a>
+
+    {{ include('systeme/_delete_form.html.twig') }}
+</div>
+{% endblock %}

@@ -3,3 +3,12 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+
+admin:
+    path: /
+    controller: App\Controller\AdminController::admin
+
+systeme:
+    path: /systeme
+    controller: App\Controller\SystemeController::index

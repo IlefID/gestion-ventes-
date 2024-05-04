@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Systeme{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{% endblock %}
+
+{% block body %}
+<div>
+    {% include 'admin/admin.html.twig' %}
+
+</div>
+
+<div class="aa">
+
+</div>
+<div class="bb">
+         <div class="row">
+                <div class="col-12">
+                    <a href="{{ path('app_systeme_new') }}" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create new</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12"> 
+                    <div class="cc">
+                        <table class="table table-striped table-hover mt-3 text-center table-bordered">
+                        <thead>
+                            <tr>
+                                <th id="col">ID</th>
+                                <th id="col">Famille</th>
+                                <th id="col">Edition</th>
+                                <th id="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for systeme in systemes %}
+                            <tr>
+                                <td>{{ systeme.idos }}</td>
+                                <td>{{ systeme.famille }}</td>
+                                <td>{{ systeme.editeur }}</td>
+                                <td>
+                                    <a href="{{ path('app_systeme_show', {'id': systeme.id}) }}" class="btn btn-dark"><i class="bi bi-eye"></i></a>
+                                    <a href="{{ path('app_systeme_edit', {'id': systeme.id}) }}" class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
+                                    <button class="btn btn-secondary"><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="4">No records found</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+   
+{% endblock %}
