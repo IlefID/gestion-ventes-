@@ -1,0 +1,30 @@
+  <div class="container mt-4">
+    <h1>Filtage</h1>
+    <form method="get" action="{{ path('app_client') }}">
+        <div class="form-group">
+            <label for="type">Type :</label>
+            <select id="type" name="type" class="form-control">
+                <option value="">Tous</option>
+                {% for type in types %}
+                    <option value="{{ type }}" {% if filters.type == type %}selected{% endif %}>{{ type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="prixMin">Prix min :</label>
+            <input type="number" class="form-control" id="prixMin" name="prixMin" step="0.01" value="{{ filters.prixMin ?? '' }}">
+        </div>
+        <div class="form-group">
+            <label for="prixMax">Prix max :</label>
+            <input type="number" class="form-control" id="prixMax" name="prixMax" step="0.01" value="{{ filters.prixMax ?? '' }}">
+        </div>
+        <div class="form-group">
+            <label for="order">Trier par prix :</label>
+            <select id="order" name="order" class="form-control">
+                <option value="asc" {% if filters.order == 'asc' %}selected{% endif %}>Croissant</option>
+                <option value="desc" {% if filters.order == 'desc' %}selected{% endif %}>Décroissant</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrer</button>
+    </form>
+</div>

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Appareil{% endblock %}
+
+{% block body %}
+
+    {{ include('appareil/new.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_appareil_index') }}">back to list</a>
+{% endblock %}

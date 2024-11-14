@@ -1,0 +1,48 @@
+{# templates/client/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Appareils{% endblock %}
+
+{% block body %}
+    <h1>Appareils</h1>
+    <form method="get" action="{{ path('app_client') }}">
+        <div>
+            <label for="designation">Désignation :</label>
+            <input type="text" id="designation" name="designation" value="{{ filters.designation ?? '' }}">
+        </div>
+        <div>
+            <label for="type">Type :</label>
+            <select id="type" name="type">
+                <option value="">Tous</option>
+                {% for type in types %}
+                    <option value="{{ type }}" {% if filters.type == type %}selected{% endif %}>{{ type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="prixMin">Prix min :</label>
+            <input type="number" id="prixMin" name="prixMin" step="0.01" value="{{ filters.prixMin ?? '' }}">
+        </div>
+        <div>
+            <label for="prixMax">Prix max :</label>
+            <input type="number" id="prixMax" name="prixMax" step="0.01" value="{{ filters.prixMax ?? '' }}">
+        </div>
+        <div>
+            <label for="order">Trier par prix :</label>
+            <select id="order" name="order">
+                <option value="asc" {% if filters.order == 'asc' %}selected{% endif %}>Croissant</option>
+                <option value="desc" {% if filters.order == 'desc' %}selected{% endif %}>Décroissant</option>
+            </select>
+        </div>
+        <button type="submit">Filtrer</button>
+    </form>
+
+    <ul>
+        {% for appareil in appareils %}
+            <li>{{ appareil.designation }} - {{ appareil.prixUnit }} €</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ path('app_client') }}">Réinitialiser</a>
+{% endblock %}

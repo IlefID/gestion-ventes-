@@ -1,0 +1,158 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+nav.navbar{
+    position: fixed;
+    background: #22242A;
+    padding: 9px;
+    width: 100%;
+    padding-bottom: 14px;
+    border-radius:3px;
+}
+h3 #span1, h3 #span3 {
+    color: #ffffff; /* blanc */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    font-size: 24px; /* Taille de la police */
+}
+/* Style pour le texte "TO" et "MOBILE" */
+h3 #span2, h3 #span4 {
+    color: #1DC4E7; /* votre couleur */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    font-size: 18px; /* Taille de la police */
+    font-weight: bold; /* Gras */
+}
+/* Style pour le bloc contenant l'image */
+.image-block {
+    margin-top: 70px; /* Ajustez selon vos besoins */
+    text-align: center;
+}
+.image-block img {
+    max-width: 100%;
+    height: auto;
+}
+#product-cards{
+    margin-top: 100px;
+}
+#product-cards h1{
+    color: #ffc800;
+    text-shadow: 1px 1px 1px black;
+    border-bottom: 2px solid #ffc800;
+}
+#product-cards .card h3{
+    font-size: 20px;
+    color: black;
+}
+#product-cards .card p{
+    font-size: 12px;
+    margin-top: 5px;
+    color: black;
+}
+.star i{
+    margin-left: 5px;
+    font-size: 13px;
+}
+.checked{
+    color: #ffc800;
+}
+#product-cards .card h2{
+    font-size: 20px;
+    color: black;
+    margin-top: 20px;
+}
+#product-cards .card h2 span{
+    float: right;
+    color: black;
+    cursor: pointer;
+}
+@media screen and (max-width:1000px){
+    #product-cards .card h3{
+        font-size: 15px;
+    }
+}
+
+img {
+width: 1000px;
+}
+.grid{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-gap: 20px;
+z-index: -1;
+}
+/*
+* ======================================================================
+* HOT
+* ======================================================================
+*/
+#hot h2 {
+text-transform: uppercase;
+letter-spacing: 0.1em;
+font-size: 2.25rem;
+color: #4fbfa8;
+font-weight: 100;
+text-align: center;
+}
+
+#hot .product-slider {
+clear: both;
+margin-bottom: 20px;
+}
+
+#hot .product-slider .item {
+margin: 0 25px;
+}
+
+#hot .product-slider .product {
+margin-bottom: 0;
+}
+
+#hot .product-slider .owl-dots {
+position: relative;
+margin-bottom: 30px;
+}
+/*
+* ======================================================================
+* ADVANTAGES
+* ======================================================================
+*/
+#advantages {
+text-align: center;
+}
+
+#advantages .box .icon {
+position: absolute;
+font-size: 120px;
+width: 100%;
+text-align: center;
+top: -20px;
+left: 0;
+height: 100%;
+float: left;
+color: #eee;
+-webkit-transition: all 0.3s;
+transition: all 0.3s;
+z-index: -1;
+}
+
+#advantages .box h3 {
+position: relative;
+margin: 0 0 10px;
+font-weight: 300;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+z-index: -1;
+}
+
+#advantages .box h3 a:hover {
+text-decoration: none;
+}
+
+#advantages .box p {
+position: relative;
+color: #555;
+z-index: -1;
+}
+

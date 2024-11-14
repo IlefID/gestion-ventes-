@@ -29,10 +29,6 @@
     background-color:#1DC4E7;
 }
 
-.cc {
-    width:1200px;
-    height:700px; 
-}
 
 .table-striped tbody tr:nth-child(odd) {
     background-color: #f8f9fa;

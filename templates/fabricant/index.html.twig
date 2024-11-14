@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Systeme{% endblock %}
+{% block title %}Fabricant{% endblock %}
+
 {% block stylesheets %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
+     <style>
         /* Style pour le contenu de la modal */
 .modal-body form {
     padding: 20px;
@@ -59,8 +60,8 @@
 }
 #m{background-color:skyblue;}
     </style>
-{% endblock %}
 
+{% endblock %}
 {% block body %}
 <div>
     {% include 'admin/admin.html.twig' %}
@@ -71,31 +72,32 @@
 
 </div>
 <div class="bb">
-         <div class="row">
+    <div class="row">
                 <div class="col-12">
-                    <a href="{{ path('app_systeme_new') }}" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create new</a>
+                    <a href="{{ path('app_fabricant_new') }}" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create new</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12"> 
                     <div class="cc">
-                        <table class="table table-striped table-hover mt-3 text-center table-bordered">
+                         <div class="table-responsive">
+                                <table class="table table-striped table-hover mt-3 text-center table-bordered">
                         <thead>
                             <tr>
                                 <th id="col">ID</th>
                                 <th id="col">Image</th>
-                                <th id="col">Famille</th>
-                                <th id="col">Edition</th>
+                                <th id="col">Nom</th>
+                                <th id="col">PaysOrigine</th>
                                 <th id="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for systeme in systemes %}
+                        {% for fabricant in fabricants %}
                             <tr>
-                                <td>{{ systeme.idos }}</td>
-                                <td><img src="{{systeme.imageUrl }}" alt="systemeImage" width="50"  height="50"></td>
-                                <td>{{ systeme.famille }}</td>
-                                <td>{{ systeme.editeur }}</td>
+                                <td>{{ fabricant.idfab }}</td>
+                                <td><img src="{{fabricant.imageUrl }}" alt="systemeImage" width="50"  height="50"></td>
+                                <td>{{ fabricant.nom }}</td>
+                                <td>{{ fabricant.paysOrigine }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
                                         <button class="btn btn-Dark" data-bs-toggle="modal" data-bs-target="#lireData"><i class="fa-solid fa-eye"></i></button>
@@ -103,66 +105,60 @@
                                                 <div class="modal-dialog ">
                                                         <div class="modal-content" id="m">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title">Vue Système</h4>
+                                                                <h4 class="modal-title">Vue Fabricant</h4>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <form action="#" id="myForm">
                                                                     <div class="inputField">
                                                                         <div> 
-                                                                            <label for="idos"> IdOS:</label>
-                                                                            <input type="number" value="{{ systeme.idos }}" id="idos">
+                                                                            <label for="idfab"> IdFab:</label>
+                                                                            <input type="number" value="{{ fabricant.idfab }}" id="idfab">
                                                                         </div>
 
                                                                         <div> 
-                                                                            <label for="famille"> Famille:</label>
-                                                                            <input type="text"value="{{ systeme.famille }}" id="famille">
+                                                                            <label for="nom"> Nom:</label>
+                                                                            <input type="text"value="{{ fabricant.nom }}" id="nom">
                                                                         </div>
                                                                         <div> 
-                                                                            <label for="editeur"> Editeur:</label>
-                                                                            <input type="text" value="{{ systeme.editeur }}" id="editeur">
+                                                                            <label for="paysOrigine"> PaysOrigine:</label>
+                                                                            <input type="text" value="{{ fabricant.paysOrigine }}" id="paysOrigine">
                                                                         </div>
                                                                         <div> 
                                                                             <label for="nom"> ImageUrl:</label>
-                                                                            <input type="text" value="{{ systeme.imageUrl }}" id="nom">
+                                                                            <input type="text" value="{{ fabricant.imageUrl }}" id="nom">
                                                                         </div>
                                                                         
                                                                     </div>
                                                                 </form>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <a href="{{ path('app_systeme_index') }}" class="btn btn-secondary"> <sub><i class="bi bi-arrow-return-left"></i></sub> Back to list</a>
-                                                                <a href="{{ path('app_systeme_edit', {'id': systeme.id}) }}" class="btn btn-primary"> <i class="fa-solid fa-circle-plus"></i> Edit</a>
+                                                                <a href="{{ path('app_fabricant_index') }}" class="btn btn-secondary"> <sub><i class="bi bi-arrow-return-left"></i></sub> Back to list</a>
+                                                                <a href="{{ path('app_fabricant_edit', {'id': fabricant.id}) }}" class="btn btn-primary"> <i class="fa-solid fa-circle-plus"></i> Edit</a>
                                                             </div>
                                                         </div>   
                                                     </div>
                                                 </div>
-                                        &nbsp;
-                                        <a href="{{ path('app_systeme_edit', {'id': systeme.id}) }}" class="btn btn-info"><i class="bi bi-pencil-square"></i></a> &nbsp;
-                                        <form method="post" action="{{ path('app_systeme_delete', {'id': systeme.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ systeme.id) }}">
-                                            <button type="submit" class="btn btn-secondary"><i class="bi bi-trash"></i></button>
-                                        </form>
-                                    </div>
+                                    &nbsp;
+                                    <a href="{{ path('app_fabricant_edit', {'id': fabricant.id}) }}" class="btn btn-info"><i class="bi bi-pencil-square"></i></a> &nbsp;
+                                    <form method="post" action="{{ path('app_fabricant_delete', {'id': fabricant.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ fabricant.id) }}">
+                                         <button type="submit" class="btn btn-secondary"><i class="bi bi-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>
-                            {% else %}
+                        {% else %}
                             <tr>
-                                <td colspan="4">No records found</td>
+                                <td colspan="5">no records found</td>
                             </tr>
-                            {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
-                    </div>
+                         </div>     
                 </div>
             </div>
         </div>
+    </div>
 </div>
-
-
-
-
-
-   
 {% endblock %}

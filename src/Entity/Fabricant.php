@@ -22,6 +22,9 @@ class Fabricant
     #[ORM\Column(length: 100)]
     private ?string $paysOrigine = null;
 
+    #[ORM\Column(type: 'string', length: 600, nullable: true)]
+    private ?string $imageUrl = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Fabricant
     public function setPaysOrigine(string $paysOrigine): static
     {
         $this->paysOrigine = $paysOrigine;
+
+        return $this;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImageUrl(?string $imageUrl): self
+    {
+        $this->imageUrl = $imageUrl;
 
         return $this;
     }

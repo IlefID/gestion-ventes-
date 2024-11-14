@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Systeme{% endblock %}
+{% block title %}New Appareil{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -84,7 +84,6 @@
    </style>
 {% endblock %}
 
-
 {% block body %}
 <div>
     {% include 'admin/admin.html.twig' %}
@@ -98,7 +97,7 @@
             <div class="content1-dialog">
                 <div class="content1">
                     <div class="content1-header">
-                        <h5 class="content1-title">Create new Systeme</h5>
+                        <h5 class="content1-title">Create new Appareil</h5>
                     </div>
                     <div class="content1-body">
                         {{ form_start(form, {'attr': {'id': 'myForm', 'class': 'form'}}) }}
@@ -107,13 +106,11 @@
                     </div>
                     <div class="content1-footer">
                         <button type="submit" form="myForm" class="btn btn-primary"><i class="fa-solid fa-circle-plus"></i> {{ button_label|default('Ajouter') }}</button>
-                        <a href="{{ path('app_systeme_index') }}" class="btn btn-secondary"><sub><i class="bi bi-arrow-return-left"></i></sub> Back to list</a>
+                        <a href="{{ path('app_appareil_index') }}" class="btn btn-secondary"><sub><i class="bi bi-arrow-return-left"></i></sub> Back to list</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 {% endblock %}

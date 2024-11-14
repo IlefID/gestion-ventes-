@@ -22,6 +22,10 @@ class Systeme
     #[ORM\Column(length: 100)]
     private ?string $editeur = null;
 
+    #[ORM\Column(type: 'string', length: 600, nullable: true)]
+    private ?string $imageUrl = null;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +63,18 @@ class Systeme
     public function setEditeur(string $editeur): static
     {
         $this->editeur = $editeur;
+
+        return $this;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImageUrl(?string $imageUrl): self
+    {
+        $this->imageUrl = $imageUrl;
 
         return $this;
     }

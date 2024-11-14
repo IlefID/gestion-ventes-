@@ -40,6 +40,16 @@ class SystemeType extends AbstractType
         'label_attr' => [
             'class' => 'form-label',
         ],
+    ])
+    ->add('imageUrl', TextType::class, [
+        'label' => 'Image URL:', 
+        'required' => false, 
+        'attr' => [
+            'class' => 'form-control',
+        ],
+        'label_attr' => [
+            'class' => 'form-label',
+        ],
     ]);
 
     }

@@ -29,7 +29,7 @@ class Appareil
     #[ORM\Column]
     private ?int $qteVendue = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: 'date')]
     private ?\DateTimeInterface $dateSortie = null;
 
     #[ORM\ManyToOne]
@@ -37,6 +37,9 @@ class Appareil
 
     #[ORM\ManyToOne]
     private ?Fabricant $idfab = null;
+
+    #[ORM\Column(type: 'string', length: 600, nullable: true)]
+    private ?string $imageUrl = null;
 
     public function getId(): ?int
     {
@@ -137,5 +140,22 @@ class Appareil
         $this->idfab = $idfab;
 
         return $this;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImageUrl(?string $imageUrl): self
+    {
+        $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->type;
     }
 }
