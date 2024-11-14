@@ -1,2 +1,1 @@
-![Uploading image.png…]()
-gestion de ventes.docx
+voir gestion de ventes.docx
